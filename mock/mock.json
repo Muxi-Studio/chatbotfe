@@ -1,0 +1,31 @@
+{
+	"routes": [
+		{
+			"name": "home",
+			"endpoint": "/",
+			"template": "home",
+			"async": false
+		},
+		{
+			"name": "second",
+			"endpoint": "/second",
+			"async": true
+		},
+		{
+			"name": "api.courses",
+			"endpoint": "/api/v1.0/courses",
+			"async": true
+		}
+	],
+	"data":{
+		"home":{
+			"title": "hello"
+		},
+		"second":{
+			"title": "second"
+		},
+		"api.courses":{
+			"title": "second"
+		}
+	}
+}
