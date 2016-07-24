@@ -19,13 +19,17 @@ module.exports = {
       exclude: /node_modules/
     },
     {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,     
+      loader: 'url-loader'
+    },
+    {
       test: /\.scss$/,
       exclude: /node_modules/,
       loader: 'style!css?sourceMap!sass?sourceMap&sourceComments'
     }],
   },
   resolve: {
-    extensions: ['', '.js', '.scss'],
+    extensions: ['', '.js', '.scss']
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

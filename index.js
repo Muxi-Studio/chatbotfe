@@ -1,4 +1,6 @@
 require('./scss/index.scss');
+// require("url-loader!./img/title.png");
+
 
 var cb = require("./js/chatbot");
 cb()
