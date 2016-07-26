@@ -36,7 +36,7 @@ input[type="text"]{
 	padding:2px 5%;
 	font-size: 16px;
 }
-button[type=submit]{
+button{
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
@@ -52,7 +52,7 @@ button[type=submit]{
 	width: calc(100%-20px);
 	height: calc(100% - 77px - 85px);
 	padding:0px 15px;
-	overflow: scroll;
+	overflow:auto;
 	.chatbot,.user{
 		width: 100%;
 		margin-top: 40px;
@@ -71,7 +71,7 @@ button[type=submit]{
 				width:0; 
 				height:0; 
 				border-width:10px 5px; 
-				border-style:solid; 
+				border-style:solid;
 			}
 			.box{
 				padding: 10px;
@@ -79,12 +79,9 @@ button[type=submit]{
 				-moz-box-sizing:border-box;
 				-webkit-box-sizing:border-box;
 				max-width: calc(100% - 30px);
-				min-height: 70px;
-				background-color: #f3f3f3;
 				p{
 					font-size: 16.67px;
 					font-family: "Microsoft YaHei";
-					color:#626262;
 					word-wrap:break-word;
 					line-height: 25px;
 				}
@@ -102,7 +99,11 @@ button[type=submit]{
 				border-color:#f3f3f3 #f3f3f3 #ffffff #ffffff;
 			}
 			.box{
+				background-color: #f3f3f3;
 				border-radius: 0px 10px 10px 10px;
+				p{
+					color: #636363;
+				}
 			}
 		}
 	}
@@ -114,10 +115,14 @@ button[type=submit]{
 		.bubble{
 			flex-direction:row-reverse;
 			.angle{
-				border-color:#f3f3f3 #ffffff #ffffff #f3f3f3;
+				border-color:#3cb879 #ffffff #ffffff #3cb879;
 			}
 			.box{
+				background-color: #3cb879;
 				border-radius: 10px 0px 10px 10px;
+				p{
+					color:#f3f3f3;
+				}
 			}
 		}
 	}

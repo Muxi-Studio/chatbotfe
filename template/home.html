@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="top"></div>
-	<div class="content">
+	<div class="content" v-el:content>
 		<div class="chatbot">
 			<div class="img"></div>
 			<div class="bubble">
@@ -15,31 +15,26 @@
 				<div class="box"><p>你好，欢迎进入木犀聊天平台。在这里，我们为你解答...</p></div>
 			</div>
 		</div>
-		<div class="chatbot">
-			<div class="img"></div>
-			<div class="bubble">
-				<div class="angle"></div>
-				<div class="box"><p>你好，欢迎进入木犀聊天平台。在这里，我们为你解答...你好，欢迎进入木犀聊天平台。在这里，我们为你解答...</p></div>
+		<div v-for="myque in myques">
+			<div class="user">
+				<div class="img"></div>
+				<div class="bubble">
+					<div class="angle"></div>
+					<div class="box"><p>${ myque.text }</p></div>
+				</div>
 			</div>
-		</div>
-		<div class="chatbot">
-			<div class="img"></div>
-			<div class="bubble">
-				<div class="angle"></div>
-				<div class="box"><p>你好，欢迎进入木犀聊天平台。在这里，我们为你解答...你好，欢迎进入木犀聊天平台。在这里，我们为你解答...你好，欢迎进入木犀聊天平台。在这里，我们为你解答...</p></div>
-			</div>
-		</div>
-		<div class="user">
-			<div class="img"></div>
-			<div class="bubble">
-				<div class="angle"></div>
-				<div class="box"><p>你好，欢迎进入木犀聊天平台。在这里，我们为你解答...你好，欢迎进入木犀聊天平台。在这里，我们为你解答...你好，欢迎进入木犀聊天平台。在这里，我们为你解答...</p></div>
+			<div class="chatbot">
+				<div class="img"></div>
+				<div class="bubble">
+					<div class="angle"></div>
+					<div class="box"><p></p></div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="input">
-		<input type="text" name="text" placeholder="你想知道什么？">
-		<button type="submit"></button>
+		<input type="text" name="text" placeholder="你想知道什么？" v-model="ques">
+		<button @click="ask"></button>
 	</div>
 	<script src="/bundle.js"></script>
 </body>
