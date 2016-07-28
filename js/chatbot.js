@@ -3,7 +3,7 @@ module.exports = function() {
 var Vue=require('vue')
 var request = require('superagent');
 Vue.config.delimiters = ['${', '}']
-new Vue({
+var vm = new Vue({
 		el: "body",
 		data: {
 			ques:'',
@@ -13,12 +13,20 @@ new Vue({
 			ask: function(){		
 				var text = this.ques.trim()
 				if (text) {
-					this.myques.push({ text: text})
-					this.ques = ''
+					request
+						.get('http://localhost:3000/second')
+						.query({ query: text })
+						.end(function(err,res){
+							if (err) throw err;
+							var tag = res.body.tag;
+							var get = res.body.content;
+							vm.myques.push({ text: text, tag: tag, bot: get})
+							vm.ques=''
+							vm.$nextTick(function(){
+                    		vm.$els.content.scrollTop = vm.$els.content.scrollHeight;
+                			});
+						})
 				}
-				this.$nextTick(function(){
-                    this.$els.content.scrollTop = this.$els.content.scrollHeight;
-                });
 			}
 		}
 	})

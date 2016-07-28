@@ -27,7 +27,18 @@
 				<div class="img"></div>
 				<div class="bubble">
 					<div class="angle"></div>
-					<div class="box"><p></p></div>
+					<template v-if=" myque.tag == 'img' ">
+						<div class="box box-img"><img :src="myque.bot"></div>
+					</template>
+					<template v-if=" myque.tag == 'text' ">
+						<div class="box"><p>${ myque.bot }</p></div>
+					</template>
+					<template v-if=" myque.tag == 'web' "></div>
+						<div class="box"><a href="${ myque.bot }}">${ myque.bot }</a></div>
+					</template>
+					<template v-if=" myque.tag == 'map' ">
+						<div class="box"></div>
+					</template>
 				</div>
 			</div>
 		</div>
