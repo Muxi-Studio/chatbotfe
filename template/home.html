@@ -28,16 +28,24 @@
 				<div class="bubble">
 					<div class="angle"></div>
 					<template v-if=" myque.tag == 'img' ">
-						<div class="box box-img"><img :src="myque.bot"></div>
+						<div class="box box-img"><img :src="myque.bot" v-on:click="largepic(myque)"></div>
 					</template>
 					<template v-if=" myque.tag == 'text' ">
 						<div class="box"><p>${ myque.bot }</p></div>
 					</template>
 					<template v-if=" myque.tag == 'web' "></div>
-						<div class="box"><a href="${ myque.bot }}">${ myque.bot }</a></div>
+						<div class="box"><a href="${ myque.bot }">${ myque.bot }</a></div>
 					</template>
 					<template v-if=" myque.tag == 'map' ">
 						<div class="box"></div>
+					</template>
+					<template v-if="myque.largepic">
+						<div class="largepic">
+							<div class="pic_box">
+								<div class="close" v-on:click="close(myque)">X</div>
+								<div class="pic_content"><img :src="myque.bot"></div>
+							</div>
+						</div>
 					</template>
 				</div>
 			</div>

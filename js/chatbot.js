@@ -7,7 +7,7 @@ var vm = new Vue({
 		el: "body",
 		data: {
 			ques:'',
-			myques:[],
+			myques:[]
 		},
 		methods:{
 			ask: function(){		
@@ -20,13 +20,19 @@ var vm = new Vue({
 							if (err) throw err;
 							var tag = res.body.tag;
 							var get = res.body.content;
-							vm.myques.push({ text: text, tag: tag, bot: get})
+							vm.myques.push({ text: text, tag: tag, bot: get,largepic: false})
 							vm.ques=''
 							vm.$nextTick(function(){
                     		vm.$els.content.scrollTop = vm.$els.content.scrollHeight;
                 			});
 						})
 				}
+			},
+			largepic: function(myque){
+				myque.largepic = true;
+			},
+			close: function(myque){
+				myque.largepic = false;
 			}
 		}
 	})
