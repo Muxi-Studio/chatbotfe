@@ -23,6 +23,10 @@ module.exports = {
       loader: 'url-loader'
     },
     {
+        test: /\.vue$/,
+        loader: 'vue'
+    },
+    {
       test: /\.scss$/,
       exclude: /node_modules/,
       loader: 'style!css?sourceMap!sass?sourceMap&sourceComments'

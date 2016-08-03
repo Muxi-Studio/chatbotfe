@@ -3,10 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
 	<title>chatbot</title>
 </head>
 <body>
 	<div class="top"></div>
+	<app></app>
 	<div class="content" v-el:content>
 		<div class="chatbot">
 			<div class="img"></div>
@@ -37,7 +39,7 @@
 						<div class="box"><a href="${ myque.bot }">${ myque.bot }</a></div>
 					</template>
 					<template v-if=" myque.tag == 'map' ">
-						<div class="box"></div>
+						<div class="box" id="allmap"></div>
 					</template>
 					<template v-if="myque.largepic">
 						<div class="largepic">

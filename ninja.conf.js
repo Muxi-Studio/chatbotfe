@@ -3,7 +3,8 @@ module.exports = {
 	webpack: true, // flag for using webpack or not
 	proxy: {
 		route: "/api",
-		origin: "http://xueer.muxixyz.com"
+		origin: "http://api.map.baidu.com/api?v=1.4"
+		// origin: "http://xueer.muxixyz.com"
 	},
 	staticDir: "/static",
 	templateDir: "/template",
