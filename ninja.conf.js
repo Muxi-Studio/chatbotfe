@@ -7,5 +7,5 @@ module.exports = {
 		// origin: "http://xueer.muxixyz.com"
 	},
 	staticDir: "/static",
-	templateDir: "/template",
+	templateDir: "/templates",
 }

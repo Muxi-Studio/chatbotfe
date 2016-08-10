@@ -7,9 +7,9 @@ module.exports = {
     path.resolve(__dirname, './index.js')
   ],
   output: {
-    // path: '/',
-    publicPath: 'http://localhost:3000/build',
-    path: path.join(__dirname, './build'),
+    path:'/',
+    // path: path.join(__dirname,'./build'),
+    publicPath: 'http://localhost:3000/',
     filename: 'bundle.js'
   },
   module: {

@@ -1,7 +1,6 @@
 module.exports = function() {
 //config
 var Vue=require('vue');
-// var map = require('./map.vue');
 var request = require('superagent');
 Vue.config.delimiters = ['${', '}'];
 
@@ -11,9 +10,6 @@ var vm = new Vue({
 			ques:'',
 			myques:[]
 		},
-		// components: {
-		// 	app : map
-		// },
 		methods:{
 			ask: function(){		
 				var text = this.ques.trim()
@@ -53,20 +49,4 @@ var vm = new Vue({
 			}
 		}
 	})
-	// Vue.directive('bmap', {
-	// 	bind:function(){
-	// 		var map = new BMap.Map();
-	// 		map.centerAndZoom(); 
-	// 	},
-	// 	update:function(){
-	// 		var map = new BMap.Map(this.el);
-	// 		map.centerAndZoom(this.arg,19);
-	// 	}
-	// })
-	// var bmap = new Vue({
-	// 	el:'#bmap',
-	// 	data:{
-	// 		msg:"广东"
-	// 	}
-	// })
 }
