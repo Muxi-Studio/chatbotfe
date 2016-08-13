@@ -1,20 +1,17 @@
 module.exports = function() {
 //config
 var Vue=require('vue');
-// var map = require('./map.vue');
+var map = require('./map.vue');
 var request = require('superagent');
 Vue.config.delimiters = ['${', '}'];
 
 var vm = new Vue({
 		el: "body",
-		directives: { focus: focus },
 		data: {
 			ques:'',
 			myques:[]
 		},
-		// components: {
-		// 	app : map
-		// },
+		components: { app: map },
 		methods:{
 			ask: function (){
 						var text = this.ques.trim()
