@@ -7,9 +7,9 @@
 	<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
 </head>
 <body>
+<div class="wrap">
 	<div class="top"></div>
-	<app></app>
-	<div class="content" v-el:content v-cloak>
+	<div class="content" v-el:content>
 		<div class="chatbot">
 			<div class="img"></div>
 			<div class="bubble">
@@ -17,7 +17,7 @@
 				<div class="box"><p>你好，欢迎进入木犀聊天平台。在这里，我们为你解答...</p></div>
 			</div>
 		</div>
-		<div v-for="myque in myques">
+		<div v-for="myque in myques" v-cloak>
 			<div class="user">
 				<div class="img"></div>
 				<div class="bubble">
@@ -57,6 +57,7 @@
 		<input type="text" name="text" placeholder="你想知道什么？" v-model="ques">
 		<button @click="ask"></button>
 	</div>
+</div>
 	<script src="/bundle.js"></script>
 </body>
 </html>
