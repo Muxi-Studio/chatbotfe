@@ -4,60 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>chatbot</title>
-	<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=iW9tLVSnsatY0oRFgDGn5NvxrZIke65b" type="text/javascript"></script>
 </head>
 <body>
-<div class="wrap">
-	<div class="top"></div>
-	<div class="content" v-el:content>
-		<div class="chatbot">
-			<div class="img"></div>
-			<div class="bubble">
-				<div class="angle"></div>
-				<div class="box"><p>你好，欢迎进入木犀聊天平台。在这里，我们为你解答...</p></div>
-			</div>
-		</div>
-		<div v-for="myque in myques" v-cloak>
-			<div class="user">
-				<div class="img"></div>
-				<div class="bubble">
-					<div class="angle"></div>
-					<div class="box"><p>${ myque.text }</p></div>
-				</div>
-			</div>
-			<div class="chatbot">
-				<div class="img"></div>
-				<div class="bubble">
-					<div class="angle"></div>
-					<template v-if=" myque.tag == 'pic' ">
-						<div class="box box-img"><img :src="myque.bot" v-on:click="largepic(myque)"></div>
-					</template>
-					<template v-if=" myque.tag == 'txt' ">
-						<div class="box"><p>${ myque.bot }</p></div>
-					</template>
-					<template v-if=" myque.tag == 'unk'">
-						<div class="box"><p>hahahahhahah</p></div>
-					</template>
-					<template v-if=" myque.tag == 'web' "></div>
-						<div class="box"><a href="${ myque.bot }">${ myque.bot }</a></div>
-					</template>
-					<template v-if="myque.largepic">
-						<div class="largepic">
-							<div class="pic_box">
-								<div class="close" v-on:click="close(myque)">X</div>
-								<div class="pic_content"><img :src="myque.bot"></div>
-							</div>
-						</div>
-					</template>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="input" v-cloak>
-		<input type="text" name="text" placeholder="你想知道什么？" v-model="ques">
-		<button @click="ask"></button>
-	</div>
+<div class="wrap" id="wrap" v-cloak>
+	<app></app>
 </div>
-	<script src="/bundle.js"></script>
+<script src="/bundle.js"></script>
 </body>
 </html>
