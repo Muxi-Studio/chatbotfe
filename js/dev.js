@@ -27,7 +27,9 @@ new Vue({
 								}
 								self.ques=''
 								self.$nextTick(function(){
-									map(get,mapindex);
+									if (tag == 'map') {
+										map(get,mapindex);
+									}
 	                    			self.$els.content.scrollTop = self.$els.content.scrollHeight;
 	                			});
 							})

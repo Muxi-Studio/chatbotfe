@@ -5,7 +5,12 @@
 			<div class="img"></div>
 			<div class="bubble">
 				<div class="angle"></div>
-				<div class="box"><p>你好，欢迎进入木犀聊天平台。在这里，我们为你解答...</p></div>
+				<div class="box"><p>你好，我是木小犀，我可以为你解答很多问题，也可以陪你聊天哟~<br/>
+							如果你想问路，例如你要去图书馆，请问'华中师范大学图书馆在哪儿'；<br/>
+							如果你想得到网址，例如你想知道信息门户的网址，请问'信息门户的网址'；<br/>
+							如果你想得到照片，例如你想要图书馆的照片，请问'图书馆的照片'；<br/>
+							如果你想得到资料或者通知等等，例如你想要华中师范大学的资料，请问'华中师范大学的资料'；<br/>
+							如果你想和我聊天，就直接来吧。</p></div>
 			</div>
 		</div>
 		<div v-for="myque in myques">
@@ -26,9 +31,6 @@
 					<template v-if=" myque.tag == 'txt' ">
 						<div class="box"><p>${ myque.bot }</p></div>
 					</template>
-					<template v-if=" myque.tag == 'unk'">
-						<div class="box"><p>hahahahhahah</p></div>
-					</template>
 					<template v-if=" myque.tag == 'web' "></div>
 						<div class="box"><a href="${ myque.bot }">${ myque.bot }</a></div>
 					</template>
@@ -48,7 +50,7 @@
 		</div>
 	</div>
 	<div class="input">
-		<input type="text" name="text" placeholder="你想知道什么？" v-model="ques">
+		<input type="text" name="text" @focus="focus" placeholder="你想知道什么？" v-model="ques">
 		<button @click="ask"></button>
 	</div>
 </template>
@@ -64,9 +66,13 @@ var request = require('superagent');
 			}
 		},
 		methods:{
+			focus: function(){
+				this.$els.content.scrollTop = this.$els.content.scrollHeight;
+			},
 			ask: function(){		
 				var text = this.ques.trim()
 				var url = '/' + text
+				var self=this
 				if (text) {
 					request
 						.post(url)
@@ -92,7 +98,9 @@ var request = require('superagent');
 								}
 								self.ques=''
 								self.$nextTick(function(){
-									map(get,mapindex);
+									if (tag == 'map') {
+										map(get,mapindex);
+									}
 	                    			self.$els.content.scrollTop = self.$els.content.scrollHeight;
 	                			});
 							})
@@ -104,6 +112,7 @@ var request = require('superagent');
 									mapcontent.setAttribute("id",mapid);
 									appendmap.appendChild(mapcontent);
 									var map = new BMap.Map(mapid);
+									// var mappoint = '华中师范大学' +get; 
 									map.centerAndZoom(get,18);
 							}					
 						}

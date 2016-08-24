@@ -22,7 +22,7 @@
 			"title": "hello"
 		},
 		"second":{
-			"tag" : "map",
+			"tag" : "txt",
 			"content": "华中师范大学9号教学楼"
 		},
 		"api.courses":{

@@ -21,26 +21,28 @@ html,body{
 }
 .top{
 	width: 100%;
-	flex:1;
+	min-height: 50px;
 	background: url('../img/muxichat.png') center no-repeat;
 	background-size: 90%;
 	text-align: center;
 	background-color: #73c697;
+	z-index:300;
 }
 .input{
 	display: -webkit-flex; 
   	display: flex;
 	width: 100%;
-	flex:1;
+	min-height: 50px;
 	background-color: #6ece97;
 	justify-content:center;
 	align-items: center;
+	z-index:400;
 }
 
 input[type="text"]{
 	background-color: #8bd8ac;
 	width: 70%;
-	height: 44px;
+	height: 40px;
 	color: #f3f3f3;
 	border-style: none;
 	border-radius: 10px;
@@ -53,8 +55,8 @@ button{
 	border-radius: 10px;
 	background: url('../img/send.png') center no-repeat;
 	background-color: #cbedda;
-	width: 55px;
-	height: 44px;
+	width: 50px;
+	height: 40px;
 	margin:5px;
 }
 [id^="box-"]{
@@ -66,7 +68,7 @@ button{
 }
 .content{
 	width: 100%;
-	flex:8;
+	flex:4;
 	padding:0px 15px;
 	overflow: scroll;
 	.chatbot,.user{
