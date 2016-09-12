@@ -48,31 +48,47 @@
 				</div>
 			</div>
 		</div>
+		<user :user="user"  v-if="show" transition="expand"></user>
 	</div>
 	<div class="input">
 		<input type="text" name="text" @focus="focus" placeholder="你想知道什么？" v-model="ques">
 		<button @click="ask"></button>
 	</div>
 </template>
-
+<style>
+.expand-transition {
+  transition: all .3s ease;
+  overflow: hidden;
+}
+.expand-enter, .expand-leave {
+  opacity: 0;
+}
+</style>
 <script>
 var request = require('superagent');
+var user = require('./user.vue');
 	export default {
 		data (){
 			return {
 				ques:'',
+				user:'',
+				show: false,
 				myques:[],
 				index:1,
 			}
 		},
+		components:{user:user},
 		methods:{
 			focus: function(){
 				this.$els.content.scrollTop = this.$els.content.scrollHeight;
 			},
-			ask: function(){		
+			ask: function(){
 				var text = this.ques.trim()
+				this.user = text
+				this.show = true
+				var self=this;
+				self.ques=''
 				var url = '/' + text
-				var self=this
 				if (text) {
 					request
 						.post(url)
@@ -89,6 +105,7 @@ var request = require('superagent');
 							.get(url)
 							.end(function(err,res){
 								if (err) throw err;
+								self.show=false
 								var mapindex = self.index;
 								var tag = res.body.tag;
 								var get = res.body.content;

@@ -11,27 +11,31 @@ new Vue({
 			index:1,
 		},
 		methods:{
-			ask: function (){ 
+			ask: function (){
 						var text = this.ques.trim()
+						this.user = text
+						this.show = true
 						var self=this;
-						request
+						self.ques=''
+						if (text) {
+							request
 							.get('/second')
 							.end(function(err,res){
-								if (err) throw err;
-								var mapindex = self.index;
-								var tag = res.body.tag;
-								var get = res.body.content;
-								self.myques.push({ text: text, tag: tag, bot: get,index:mapindex,largepic: false});
-								if (tag == 'map') {
-									self.index++;
-								}
-								self.ques=''
-								self.$nextTick(function(){
-									if (tag == 'map') {
-										map(get,mapindex);
-									}
-	                    			self.$els.content.scrollTop = self.$els.content.scrollHeight;
-	                			});
+								// self.show=false
+								// if (err) throw err;
+								// var mapindex = self.index;
+								// var tag = res.body.tag;
+								// var get = res.body.content;
+								// self.myques.push({ text: text, tag: tag, bot: get,index:mapindex,largepic: false});
+								// if (tag == 'map') {
+								// 	self.index++;
+								// }
+								// self.$nextTick(function(){
+								// 	if (tag == 'map') {
+								// 		map(get,mapindex);
+								// 	}
+	       //              			self.$els.content.scrollTop = self.$els.content.scrollHeight;
+	       //          			});
 							})
 							function map(get,mapindex){
 									var boxid = 'box-'+ mapindex;
@@ -43,7 +47,7 @@ new Vue({
 									var map = new BMap.Map(mapid);
 									map.centerAndZoom(get,18);
 							}
-					},
+						}
 			largepic: function(myque){
 				myque.largepic = true;
 			},
